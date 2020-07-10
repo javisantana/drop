@@ -14,8 +14,10 @@ jobs:
         python-version: '3.7'
         architecture: 'x64'
     - name: pip packages
-      run: pip install https://storage.googleapis.com/tinybird-bdist_wheels/tinybird_cli-1.0.0b1-py3-none-any.whl
-    - name: push
+      run: pip install https://storage.googleapis.com/tinybird-bdist_wheels/tinybird_cli-1.0.0b1-py3-none-any.whl?nocache
+    - name: version
+      run: tb --version
+    - name: drop-prev-resources
       run: tb drop-prefix traffic_${GITHUB_REF##*/}
       env:
         TOKEN: ${{ secrets.tb_token }}
