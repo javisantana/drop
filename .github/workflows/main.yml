@@ -1,4 +1,4 @@
-name: project
+name: traffic_madrid
 
 on:
   push:
@@ -16,7 +16,11 @@ jobs:
     - name: pip packages
       run: pip install https://storage.googleapis.com/tinybird-bdist_wheels/tinybird_cli-1.0.0b1-py3-none-any.whl
     - name: push
-      run: tb push --push-deps --prefix ${GITHUB_REF##*/}
+      run: tb drop-prefix traffic_${GITHUB_REF##*/}
+      env:
+        TOKEN: ${{ secrets.tb_token }}
+    - name: push-project
+      run: tb push --push-deps --prefix traffic_${GITHUB_REF##*/} --fixtures
       env:
         TOKEN: ${{ secrets.tb_token }}
 
