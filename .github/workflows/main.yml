@@ -14,7 +14,7 @@ jobs:
         python-version: '3.7'
         architecture: 'x64'
     - name: pip packages
-      run: pip install https://storage.googleapis.com/tinybird-bdist_wheels/tinybird_cli-1.0.0b1-py3-none-any.whl?nocache
+      run: pip install tinybird_cli-1.0.0b1-py3-none-any.whl
     - name: version
       run: tb --version
     - name: drop-prev-resources
