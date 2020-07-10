@@ -1,0 +1,13 @@
+VERSION 0
+DESCRIPTION generated from madrid_trafico.csv
+
+SCHEMA >
+    `id` Int32,
+    `fecha` DateTime,
+    `tipo_elem` String,
+    `intensidad` Int32,
+    `ocupacion` Int16,
+    `carga` Int16,
+    `vmed` Int16,
+    `error` String,
+    `periodo_integracion` Int16

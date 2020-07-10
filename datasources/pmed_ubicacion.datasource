@@ -1,0 +1,13 @@
+VERSION 0
+DESCRIPTION generated from pmed_ubicacion.csv
+
+SCHEMA >
+    `tipo_elem` String,
+    `distrito` Nullable(Int16),
+    `id` Int32,
+    `cod_cent` String,
+    `nombre` String,
+    `utm_x` Float32,
+    `utm_y` Float32,
+    `longitud` Float32,
+    `latitud` Float32

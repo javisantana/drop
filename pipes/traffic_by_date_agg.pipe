@@ -1,0 +1,14 @@
+VERSION 0
+
+NODE endpoint
+SQL >
+    select
+        toDate(fecha) date,
+        avgState(intensidad) avg_intensidad_state
+    from madrid_trafico
+    group by date
+    order by date
+
+TYPE materialized
+ENGINE AggregatingMergeTree
+SORTING_KEY date
