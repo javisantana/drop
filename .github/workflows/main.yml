@@ -3,7 +3,6 @@ name: traffic_madrid
 on:
   push:
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,16 +12,25 @@ jobs:
       with:
         python-version: '3.7'
         architecture: 'x64'
+
     - name: pip packages
       run: pip install tinybird_cli-1.0.0b1-py3-none-any.whl
+
     - name: version
       run: tb --version
+
     - name: drop-prev-resources
       run: tb drop-prefix traffic_${GITHUB_REF##*/}
       env:
         TOKEN: ${{ secrets.tb_token }}
+
     - name: push-project
       run: tb push --push-deps --prefix traffic_${GITHUB_REF##*/} --fixtures
+      env:
+        TOKEN: ${{ secrets.tb_token }}
+
+    - name: tests
+      run: ./scripts/exec_test.sh
       env:
         TOKEN: ${{ secrets.tb_token }}
 
