@@ -7,7 +7,7 @@ SQL >
     %
     select
         date,
-        avgMerge(avg_intensidad_state) intensidad
+        avgMerge(avg_intensidad_state)*23 intensidad
     from traffic_by_date_agg
     where date between {{Date(start_date, '2020-06-01')}} and {{Date(end_date, '2020-06-02')}}
     group by date
