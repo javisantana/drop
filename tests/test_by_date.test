@@ -1,1 +1,1 @@
-tb pipe data traffic_master__traffic_by_date__v0 --start_date '2020-06-01' --end_date '2020-06-10' --format CSV
+tb pipe data $1__traffic_by_date__v0 --start_date '2020-06-01' --end_date '2020-06-10' --format CSV

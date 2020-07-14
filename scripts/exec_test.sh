@@ -2,7 +2,7 @@
 
 for t in `ls -1 tests/*.test`; do
     echo "Running $(cat $t)"
-    if res=$(bash $t | diff ${t}.result -); then
+    if res=$(bash $t ${GITHUB_REF##*/} | diff ${t}.result -); then
         echo 'OK';
         exit 0;
     else
