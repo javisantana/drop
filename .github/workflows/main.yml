@@ -30,7 +30,7 @@ jobs:
         TOKEN: ${{ secrets.tb_token }}
 
     - name: tests
-      run: ./scripts/exec_test.sh
+      run: ./scripts/exec_test.sh traffic_${GITHUB_REF##*/}
       env:
         TOKEN: ${{ secrets.tb_token }}
 
